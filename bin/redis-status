@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+require 'rubygems'
+require 'redis_status'
+
+
+puts RedisStatus.status.inspect

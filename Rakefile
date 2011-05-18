@@ -17,11 +17,12 @@ Jeweler::Tasks.new do |gem|
   gem.name = "redis_status"
   gem.homepage = "http://github.com/justinvt/redis_status"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = "Provides information about redis-server"
+  gem.description = "redis-status combines information from redis-cli info, redis.conf, and other sources to give a snapshot of the current state of redis-server"
   gem.email = "jvthibault@gmail.com"
   gem.authors = ["Justin Thibault"]
   # dependencies defined in Gemfile
+  gem.executables = ['redis-status']
 end
 Jeweler::RubygemsDotOrgTasks.new
 
