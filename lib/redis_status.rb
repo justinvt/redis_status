@@ -42,7 +42,7 @@ class RedisStatus
   end
 
   def self.conf
-     parse_settings(`cat #{config_filename || "/dev/null"}`)
+     parse_settings(`cat #{self.config_filename}`)
   end
 
   def self.set_status(*args)
@@ -90,7 +90,7 @@ class RedisStatus
   end
 
   def self.tail
-    `tail -n 50 #{self.conf[:logfile] || "/dev/null"}`.split(/\n|\r/)
+    `tail -n 50 #{self.conf[:logfile]}`.split(/\n|\r/)
   end
 
   def self.recent_errors

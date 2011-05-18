@@ -1,9 +1,30 @@
 = redis_status
 
-Description goes here.
+== Usage
+
+    require 'redis_status'
+    require 'fileutils'
+
+    if RedisStatus.running?
+
+      puts "Redis Server is running as #{RedisStatus.pid}, with its data consuming #{RedisStatus.cli_info[:used_memory]} bytes"
+
+      RedisStatus.cli_exec :bgsave
+
+      while RedisStatus.cli_info[:bgsave_in_progress] == "1"
+        # wait
+      end
+
+      FileUtils.cp RedisStatus.db_file, "/home/me/redis_backups/dump.rdb.bk"
+
+
+
+    end
+
+
 
 == Contributing to redis_status
- 
+
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it
 * Fork the project
